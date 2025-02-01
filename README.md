@@ -31,9 +31,6 @@ In addition, the project can export the internal graph structure in [Graphviz DO
 - **GraphTest.cpp:**  
   Provides a set of tests (using assertions) for validating the functionality of the `RoutePlanner` class. This file also demonstrates how to export the graph to a DOT file.
 
-- **README.md:**  
-  This file, which explains the project and provides build instructions.
-
 ## Build Instructions
 
 This project requires a C++ compiler that supports C++17. You can compile the project using the following command (assuming you are using `g++`):
