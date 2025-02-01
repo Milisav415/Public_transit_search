@@ -19,8 +19,8 @@ struct Edge {
 };
 
 int main() {
-    std::string stations_file = "stations.txt";
-    std::string vehicles_file = "vehicles.txt";
+    std::string stations_file = R"(C:\Users\jm190\CLionProjects\Public_transit_search\stations.txt)";
+    std::string vehicles_file = R"(C:\Users\jm190\CLionProjects\Public_transit_search\vehicles.txt)";
 
     // Read stations
     std::ifstream sf(stations_file);

@@ -1,14 +1,7 @@
 # ninja log v6
-2	442	7560476724143404	CMakeFiles/Public_transit_search.dir/main.cpp.obj	30f7974623caf256
-6	570	7560476724192435	CMakeFiles/Public_transit_search.dir/test_class.cpp.obj	88e79061ee79fa15
-570	690	7560476729822215	Public_transit_search.exe	14ed7e87b3cfe4f3
-58	571	7560532980878896	CMakeFiles/Public_transit_search.dir/main.cpp.obj	30f7974623caf256
-67	705	7560532980969499	CMakeFiles/Public_transit_search.dir/test_class.cpp.obj	88e79061ee79fa15
-705	852	7560532987351289	Public_transit_search.exe	14ed7e87b3cfe4f3
-4	447	7560533427521568	CMakeFiles/Public_transit_search.dir/main.cpp.obj	30f7974623caf256
-447	527	7560533431951719	Public_transit_search.exe	14ed7e87b3cfe4f3
-3	425	7560543058888495	CMakeFiles/Public_transit_search.dir/main.cpp.obj	30f7974623caf256
-10	535	7560543058960753	CMakeFiles/Public_transit_search.dir/test_class.cpp.obj	88e79061ee79fa15
-535	636	7560543064213516	Public_transit_search.exe	14ed7e87b3cfe4f3
-5	393	7560543434689633	CMakeFiles/Public_transit_search.dir/main.cpp.obj	30f7974623caf256
-394	470	7560543438580378	Public_transit_search.exe	14ed7e87b3cfe4f3
+1059	1338	7594418647955095	Public_transit_search.exe	14ed7e87b3cfe4f3
+3	1058	7594418637395583	CMakeFiles/Public_transit_search.dir/main.cpp.obj	30f7974623caf256
+6	641	7594418637425461	CMakeFiles/Public_transit_search.dir/test_class.cpp.obj	88e79061ee79fa15
+1	207	7601013870059618	build.ninja	31366780b2dd6a69
+6	1129	7601020408066071	CMakeFiles/Public_transit_search.dir/main.cpp.obj	30f7974623caf256
+1130	1741	7601020419298075	Public_transit_search.exe	14ed7e87b3cfe4f3

@@ -1,4 +1,4 @@
-Bus1 A B 3 B C 4 C D 2
-Tram1 C E 1 E F 5 F G 3
-Bus2 D H 10 H I 2 I J 4
-Train1 A G 15 G H 7
+Bus1 A B 3 C 4 D 2
+Tram1 C E 1 F 5 G 3
+Bus2 D H 10 I 2 J 4
+Train1 A G 15 H 7
