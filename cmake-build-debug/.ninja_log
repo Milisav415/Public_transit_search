@@ -1,7 +1,5 @@
 # ninja log v6
-1059	1338	7594418647955095	Public_transit_search.exe	14ed7e87b3cfe4f3
-3	1058	7594418637395583	CMakeFiles/Public_transit_search.dir/main.cpp.obj	30f7974623caf256
-6	641	7594418637425461	CMakeFiles/Public_transit_search.dir/test_class.cpp.obj	88e79061ee79fa15
-1	207	7601013870059618	build.ninja	31366780b2dd6a69
-6	1129	7601020408066071	CMakeFiles/Public_transit_search.dir/main.cpp.obj	30f7974623caf256
 1130	1741	7601020419298075	Public_transit_search.exe	14ed7e87b3cfe4f3
+6	1129	7601020408066071	CMakeFiles/Public_transit_search.dir/main.cpp.obj	30f7974623caf256
+6	641	7594418637425461	CMakeFiles/Public_transit_search.dir/test_class.cpp.obj	88e79061ee79fa15
+1	207	7601082610115371	build.ninja	31366780b2dd6a69
