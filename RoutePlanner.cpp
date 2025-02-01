@@ -8,6 +8,7 @@
 #include <string>
 #include <queue>
 #include <algorithm>
+#include <fstream>
 
 // Use the standard namespace for convenience.
 using namespace std;
@@ -185,6 +186,40 @@ pair<int, vector<int>> RoutePlanner::getMinimalTransfersRoute(const string& star
     path.push_back(start);
     reverse(path.begin(), path.end());
     return {min_transfers, path};
+}
+
+bool RoutePlanner::exportToDOT(const string& filename) const {
+    ofstream dot(filename);
+    if (!dot) {
+        cerr << "Error opening " << filename << " for writing.\n";
+        return false;
+    }
+
+    dot << "graph G {\n";
+    dot << "  node [shape=ellipse, fontsize=10];\n";
+
+    // Output nodes with station names as labels.
+    for (size_t i = 0; i < station_names.size(); i++) {
+        dot << "  " << i << " [label=\"" << station_names[i] << "\"];\n";
+    }
+
+    // To avoid duplicate edges, output an edge only if u < v.
+    for (size_t u = 0; u < adjacency.size(); u++) {
+        for (const auto &edge : adjacency[u]) {
+            int v = edge.station;
+            if (u < static_cast<size_t>(v)) {
+                // Get vehicle name (if available).
+                std::string vehicle_label = (edge.vehicle < (int)vehicle_names.size())
+                                            ? vehicle_names[edge.vehicle]
+                                            : "Unknown";
+                dot << "  " << u << " -- " << v << " [label=\""
+                    << vehicle_label << " (" << edge.travel_time << ")\"];\n";
+            }
+        }
+    }
+    dot << "}\n";
+    dot.close();
+    return true;
 }
 
 const std::vector<std::string>& RoutePlanner::getStationNames() const {

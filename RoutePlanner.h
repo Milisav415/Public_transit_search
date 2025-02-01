@@ -5,7 +5,6 @@
 #ifndef PUBLIC_TRANSIT_SEARCH_ROUTEPLANNER_H
 #define PUBLIC_TRANSIT_SEARCH_ROUTEPLANNER_H
 
-
 #include <string>
 #include <vector>
 #include <unordered_map>
@@ -50,6 +49,10 @@ public:
     // Returns the station names (to map indices to names).
     const std::vector<std::string>& getStationNames() const;
 
+    // Export the graph in Graphviz DOT format to a file.
+    // Returns true if successful.
+    bool exportToDOT(const std::string& filename) const;
+
 private:
     // Mapping from station name to index.
     std::unordered_map<std::string, int> station_id;
@@ -64,6 +67,5 @@ private:
     // Adjacency list representing the graph.
     std::vector<std::vector<Edge>> adjacency;
 };
-
 
 #endif //PUBLIC_TRANSIT_SEARCH_ROUTEPLANNER_H

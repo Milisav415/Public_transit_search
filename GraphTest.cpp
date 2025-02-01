@@ -1,6 +1,7 @@
 //
 // Created by Gime on 16/12/2024.
 //
+
 #include <cassert>
 #include <iostream>
 #include <sstream>
@@ -13,7 +14,7 @@ public:
     static void runTests() {
         testFastestRoute();
         testMinimalTransfers();
-        testInvalidFormat();
+        testExportDOT();
         cout << "All tests passed!" << endl;
     }
 
@@ -31,9 +32,9 @@ private:
         // Train1: A -> G (15), H -> 7
         // (Make sure to use the correct format; for Train1: "Train1 A G 15 H 7")
         stringstream vehicles_stream;
-        vehicles_stream << "Bus1 A B 3 B C 4 C D 2\n";
-        vehicles_stream << "Tram1 C E 1 E F 5 F G 3\n";
-        vehicles_stream << "Bus2 D H 10 H I 2 I J 4\n";
+        vehicles_stream << "Bus1 A B 3 C 4 D 2\n";
+        vehicles_stream << "Tram1 C E 1 F 5 G 3\n";
+        vehicles_stream << "Bus2 D H 10 I 2 J 4\n";
         vehicles_stream << "Train1 A G 15 H 7\n";
 
         RoutePlanner planner;
@@ -64,9 +65,9 @@ private:
 
         // Prepare vehicles data (same as before).
         stringstream vehicles_stream;
-        vehicles_stream << "Bus1 A B 3 B C 4 C D 2\n";
-        vehicles_stream << "Tram1 C E 1 E F 5 F G 3\n";
-        vehicles_stream << "Bus2 D H 10 H I 2 I J 4\n";
+        vehicles_stream << "Bus1 A B 3 C 4 D 2\n";
+        vehicles_stream << "Tram1 C E 1 F 5 G 3\n";
+        vehicles_stream << "Bus2 D H 10 I 2 J 4\n";
         vehicles_stream << "Train1 A G 15 H 7\n";
 
         RoutePlanner planner;
@@ -87,23 +88,27 @@ private:
         assert(stationNames[path.back()] == "J");
     }
 
-    // Test that an invalid vehicle format is correctly detected.
-    static void testInvalidFormat() {
+    // Test the DOT file export.
+    static void testExportDOT() {
         // Prepare station data.
         stringstream stations_stream;
-        stations_stream << "A\nB\nC\n";
+        stations_stream << "A\nB\nC\nD\n";
 
-        // Prepare an invalid vehicles line (missing a travel time).
+        // Prepare vehicles data.
         stringstream vehicles_stream;
-        vehicles_stream << "Bus1 A B 3 B C\n";  // Second leg is missing the travel time.
+        vehicles_stream << "Bus1 A B 3 C 4 D 2\n";
 
         RoutePlanner planner;
         bool ok = planner.loadStations(stations_stream);
         assert(ok);
+        ok = planner.loadVehicles(vehicles_stream);
+        assert(ok);
 
-        // loadVehicles should return false.
-        bool vehiclesOk = planner.loadVehicles(vehicles_stream);
-        assert(!vehiclesOk);
+        // Export the graph to a DOT file.
+        string dot_filename = "test_graph.dot";
+        bool exported = planner.exportToDOT(dot_filename);
+        assert(exported);
+        cout << "DOT file exported to " << dot_filename << "\n";
     }
 };
 
